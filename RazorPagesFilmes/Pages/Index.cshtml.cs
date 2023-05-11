@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using RazorPagesFilmes.Model;
 
 namespace RazorPagesFilmes.Pages
 {
@@ -10,8 +12,9 @@ namespace RazorPagesFilmes.Pages
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-        }
-
+            
+        }          
+       
         public void OnGet()
         {
 

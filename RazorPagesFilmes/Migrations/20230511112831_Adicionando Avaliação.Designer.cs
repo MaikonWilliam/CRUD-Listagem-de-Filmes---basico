@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorPagesFilmes.Data;
 
@@ -11,9 +12,10 @@ using RazorPagesFilmes.Data;
 namespace RazorPagesFilmes.Migrations
 {
     [DbContext(typeof(RazorPagesFilmesContext))]
-    partial class RazorPagesFilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20230511112831_Adicionando Avaliação")]
+    partial class AdicionandoAvaliação
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,16 +40,14 @@ namespace RazorPagesFilmes.Migrations
 
                     b.Property<string>("Genero")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
